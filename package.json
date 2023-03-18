@@ -1,0 +1,24 @@
+{
+  "name": "data-base-project",
+  "version": "1.0.0",
+  "description": "this is mongo project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/himanshigrover30/mongo-db-library-project.git"
+  },
+  "author": "himmi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/himanshigrover30/mongo-db-library-project/issues"
+  },
+  "homepage": "https://github.com/himanshigrover30/mongo-db-library-project#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "node": "^19.8.1",
+    "nodemon": "^2.0.21"
+  }
+}
