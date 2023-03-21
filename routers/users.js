@@ -1,6 +1,10 @@
 const express=require("express");
-const {users}=require("../data/users.json");
+const {getAllUsers, getUserById, deleteUser, updateUserData, createNewUser, getSubscriptionDetailsById} = require("../controllers/user-controller")
+const {users}=require("../data/users.json"); 
+
+const {UserModel,BookModel}= require ("../models");
 const router=express.Router();
+
 /* 
 Route: /users
 Method: GET
@@ -9,7 +13,7 @@ Access: Public
 Parameters: None
 */
 
-
+// router.get("/", getAllUsers);
 router.get("/",(req,res)=>{
     res.status(200).json({
         success: true,
@@ -24,6 +28,8 @@ Description: Get a user by id
 Access: Public
 Parameters: id
 */
+
+// router.get("/:id", getUserById);
 router.get("/:id",(req,res)=>{
     const {id}=req.params;
     const user=users.find((each) =>each.id=== id);
@@ -47,6 +53,8 @@ Description: Creating/Adding a new user
 Access: Public
 Parameters: None
 */
+
+// router.post("/",createNewUser);
 
 router.post("/",(req,res)=>{
     const {id,name,surname,email,subscriptionType,subscriptionDate}=req.body;
@@ -80,6 +88,7 @@ Access: Public
 Parameters: Id
 */
 
+// router.put("/:id", updateUserData)
 router.put("/:id", (req,res)=>{
     const {id} =req.params;
     const {data}= req.body;
@@ -115,6 +124,8 @@ Access: Public
 Parameters: Id
 */
 
+// router.delete("/users/:id",deleteUser)
+
 router.delete("/users/:id",(req,res)=>{
     const {id}=req.params;
     const user=users.find((each)=>each.id===id);
@@ -136,6 +147,9 @@ router.delete("/users/:id",(req,res)=>{
  * Access: Public
  * Parameters: ID
  */
+
+// router.get("/subscription-details/:id", getSubscriptionDetailsById);
+
  router.get("/subscription-details/:id", (req, res) => {
     const { id } = req.params;
     const user = users.find((each) => each.id === id);
@@ -201,7 +215,7 @@ router.delete("/users/:id",(req,res)=>{
     });
   });
   
-  
+  router.get("/subscription-details/:id", getSubscriptionDetailsById);
 
 
 module.exports = router;
